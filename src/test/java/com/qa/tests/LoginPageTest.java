@@ -30,5 +30,6 @@ public class LoginPageTest  extends BaseTest {
     public void loginTest(){
        String accountPageActualTitle = loginPage.doLogin("sahil12345@yopmail.com","Sahil@12345");
        Assert.assertEquals(accountPageActualTitle,"My Account");
+
     }
 }
