@@ -36,6 +36,7 @@ public class LoginPage {
     }
     public boolean isForgotPasswordLinkExists(){
           return  elementUtil.waitForElementVisible(forgotPassword,AppConstants.SHORT_TIMEOUT).isDisplayed();
+
     }
     public String doLogin(String email, String password){
         elementUtil.waitForElementVisible(login_email,AppConstants.SHORT_TIMEOUT).sendKeys(email);
