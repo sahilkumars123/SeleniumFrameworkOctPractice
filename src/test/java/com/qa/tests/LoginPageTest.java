@@ -23,13 +23,17 @@ public class LoginPageTest  extends BaseTest {
 
     @Test(priority = 3)
     public void checkForgotPasswordLinkExists(){
+
         Assert.assertTrue(loginPage.isForgotPasswordLinkExists());
     }
 
     @Test(priority = 4)
     public void loginTest(){
-       String accountPageActualTitle = loginPage.doLogin("sahil12345@yopmail.com","Sahil@12345");
-       Assert.assertEquals(accountPageActualTitle,"My Account");
+       //String accountPageActualTitle = loginPage.doLogin("sahil12345@yopmail.com","Sahil@12345");
+      // Assert.assertEquals(accountPageActualTitle,"My Account");
+
+        accountsPage = loginPage.doLogin("sahil12345@yopmail.com","Sahil@12345");
+        Assert.assertEquals(accountsPage.getAccountsPageTitle(),AppConstants.ACCOUNT_PAGE_TITLE);
 
     }
 }

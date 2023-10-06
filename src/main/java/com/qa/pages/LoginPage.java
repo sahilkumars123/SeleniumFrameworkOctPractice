@@ -8,8 +8,8 @@ import org.openqa.selenium.WebDriver;
 public class LoginPage {
 
     //1. private By locators
-    //2. public Page Constructors
-    //3. Public page actions
+    //2. public Page Constructor
+    //3. Public page actions/methods
 
 
     private WebDriver driver;
@@ -38,10 +38,11 @@ public class LoginPage {
           return  elementUtil.waitForElementVisible(forgotPassword,AppConstants.SHORT_TIMEOUT).isDisplayed();
 
     }
-    public String doLogin(String email, String password){
+    public AccountsPage doLogin(String email, String password){
         elementUtil.waitForElementVisible(login_email,AppConstants.SHORT_TIMEOUT).sendKeys(email);
         elementUtil.doSendKeys(login_password,password);
         elementUtil.doClick(loginBtn);
-        return elementUtil.waitForTitleIs(AppConstants.ACCOUNT_PAGE_TITLE,AppConstants.MEDIUM_TIMEOUT); //Account Page title
+        //return elementUtil.waitForTitleIs(AppConstants.ACCOUNT_PAGE_TITLE,AppConstants.MEDIUM_TIMEOUT); //Account Page title
+        return new AccountsPage(driver);
     }
 }

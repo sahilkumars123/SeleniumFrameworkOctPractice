@@ -1,6 +1,8 @@
 package com.qa.base;
 
+import com.qa.pages.AccountsPage;
 import com.qa.pages.LoginPage;
+import com.qa.pages.SearchResultPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
@@ -10,6 +12,9 @@ public class BaseTest {
 
     WebDriver driver;
     protected LoginPage loginPage;
+    protected AccountsPage accountsPage;
+
+    protected SearchResultPage searchResultPage;
 
     @BeforeTest
     public void setup(){
