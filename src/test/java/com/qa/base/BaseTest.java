@@ -2,6 +2,7 @@ package com.qa.base;
 
 import com.qa.pages.AccountsPage;
 import com.qa.pages.LoginPage;
+import com.qa.pages.ProductInfoPage;
 import com.qa.pages.SearchResultPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,6 +16,8 @@ public class BaseTest {
     protected AccountsPage accountsPage;
 
     protected SearchResultPage searchResultPage;
+
+    protected ProductInfoPage productInfoPage;
 
     @BeforeTest
     public void setup(){

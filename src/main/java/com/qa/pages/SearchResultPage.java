@@ -11,12 +11,30 @@ public class SearchResultPage {
     private ElementUtil elementUtil;
 
     private By produtText = By.tagName("h1");
+
+
+    private By productResultCount = By.xpath("//div[@id='content']//img");
     public SearchResultPage(WebDriver driver) {
         this.driver = driver;
         elementUtil = new ElementUtil(driver);
     }
 
-    public void getProductText(){
-        elementUtil.waitForElementVisible(produtText, AppConstants.SHORT_TIMEOUT);
+    public String getProductText(){
+     String productText =  elementUtil.waitForElementVisible(produtText, AppConstants.SHORT_TIMEOUT).getText(); //Search - macbook
+     String actualProductText =   productText.split("-")[1].trim();
+     return actualProductText;//macbook
+
     }
+
+    public  int getSearchResultsCount(){
+      int productCount =  elementUtil.waitForElementsVisible(productResultCount, AppConstants.MEDIUM_TIMEOUT).size();
+      System.out.println("total products for "+getProductText()+" are "+productCount);
+      return productCount;
+    }
+
+    public ProductInfoPage selectProduct(String productName){
+        elementUtil.clickElementWhenReady(By.linkText(productName),AppConstants.SHORT_TIMEOUT);
+        return new ProductInfoPage(driver);
+    }
+
 }

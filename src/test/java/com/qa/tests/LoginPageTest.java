@@ -12,7 +12,6 @@ public class LoginPageTest  extends BaseTest {
     public void loginPageTitleTest(){
        String actualTitle = loginPage.getPageTitle();
         Assert.assertEquals(actualTitle, AppConstants.LOGIN_PAGE_TITLE);
-
     }
 
     @Test(priority = 2)
