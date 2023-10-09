@@ -1,5 +1,6 @@
 package com.qa.base;
 
+import com.qa.factory.DriverFactory;
 import com.qa.pages.AccountsPage;
 import com.qa.pages.LoginPage;
 import com.qa.pages.ProductInfoPage;
@@ -8,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+
+import java.util.Properties;
 
 public class BaseTest {
 
@@ -19,13 +22,17 @@ public class BaseTest {
 
     protected ProductInfoPage productInfoPage;
 
+    DriverFactory driverFactory;
+
+    protected Properties properties;
+
     @BeforeTest
     public void setup(){
-    driver = new ChromeDriver();
-    driver.manage().window().maximize();
-    driver.manage().deleteAllCookies();
-    driver.get("https://naveenautomationlabs.com/opencart/index.php?route=account/login");
-    loginPage = new LoginPage(driver);
+
+        driverFactory = new DriverFactory();
+        properties = driverFactory.initProp();
+        driver = driverFactory.launchBrowser(properties);
+        loginPage = new LoginPage(driver);
     }
 
 

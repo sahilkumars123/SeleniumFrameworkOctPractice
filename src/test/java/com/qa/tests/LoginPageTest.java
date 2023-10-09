@@ -31,7 +31,7 @@ public class LoginPageTest  extends BaseTest {
        //String accountPageActualTitle = loginPage.doLogin("sahil12345@yopmail.com","Sahil@12345");
       // Assert.assertEquals(accountPageActualTitle,"My Account");
 
-        accountsPage = loginPage.doLogin("sahil12345@yopmail.com","Sahil@12345");
+        accountsPage = loginPage.doLogin(properties.getProperty("username"), properties.getProperty("password"));
         Assert.assertEquals(accountsPage.getAccountsPageTitle(),AppConstants.ACCOUNT_PAGE_TITLE);
 
     }

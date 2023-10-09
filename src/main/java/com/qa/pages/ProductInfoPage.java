@@ -21,7 +21,6 @@ public class ProductInfoPage {
         elementUtil = new ElementUtil(driver);
     }
 
-
     public String getProductHeaderText(){
        return elementUtil.waitForElementVisible(productText, AppConstants.SHORT_TIMEOUT).getText();
     }

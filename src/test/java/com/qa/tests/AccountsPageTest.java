@@ -13,7 +13,7 @@ public class AccountsPageTest extends BaseTest {
 
     @BeforeClass
     public void login(){
-        accountsPage = loginPage.doLogin("sahil123456@yopmail.com","Selenium@12345");
+        accountsPage = loginPage.doLogin(properties.getProperty("username"), properties.getProperty("password"));
     }
 
     @Test

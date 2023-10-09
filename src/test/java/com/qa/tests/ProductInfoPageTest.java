@@ -10,8 +10,7 @@ public class ProductInfoPageTest extends BaseTest {
 
     @BeforeClass
     public void productInfoSetup(){
-          accountsPage = loginPage.doLogin("sahil123456@yopmail.com","Selenium@12345");
-
+        accountsPage = loginPage.doLogin(properties.getProperty("username"), properties.getProperty("password"));
     }
     @DataProvider
     public Object[][] productData(){
