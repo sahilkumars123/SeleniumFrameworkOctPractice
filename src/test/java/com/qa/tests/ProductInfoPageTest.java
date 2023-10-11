@@ -6,6 +6,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.util.Map;
+
 public class ProductInfoPageTest extends BaseTest {
 
     @BeforeClass
@@ -43,5 +45,20 @@ public class ProductInfoPageTest extends BaseTest {
         searchResultPage = accountsPage.doSearch(searchKey);
         productInfoPage =   searchResultPage.selectProduct(productName);
        Assert.assertEquals(productInfoPage.getProductImagesCount(),expectedProductImagesCount);
+    }
+
+    @Test
+    public void productInfoTest(){
+       searchResultPage = accountsPage.doSearch("macbook");
+       productInfoPage = searchResultPage.selectProduct("MacBook Pro");
+       Map<String, String> actualProductData = productInfoPage.productData();
+        System.out.println("Actual Product Data: "+actualProductData);
+
+        softAssert.assertEquals(actualProductData.get("Availability"),"In Stock11");
+        softAssert.assertEquals(actualProductData.get("Brand"),"Apple11");
+        softAssert.assertEquals(actualProductData.get("Ex Tax"),"$2,000.00");
+        softAssert.assertEquals(actualProductData.get("Reward Points"),"800");
+        softAssert.assertAll();
+
     }
 }

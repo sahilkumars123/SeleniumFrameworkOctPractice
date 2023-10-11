@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.asserts.SoftAssert;
 
 import java.util.Properties;
 
@@ -26,10 +27,13 @@ public class BaseTest {
 
     protected Properties properties;
 
+    protected SoftAssert softAssert;
+
     @BeforeTest
     public void setup(){
 
         driverFactory = new DriverFactory();
+        softAssert = new SoftAssert();
         properties = driverFactory.initProp();
         driver = driverFactory.launchBrowser(properties);
         loginPage = new LoginPage(driver);
