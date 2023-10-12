@@ -20,6 +20,9 @@ public class LoginPage {
     private By loginBtn = By.xpath("//input[@value='Login']");
     private By forgotPassword = By.linkText("Forgotten Password");
 
+    private By registerBtn =By.linkText("Register");
+
+
     public LoginPage(WebDriver driver){
         this.driver = driver;
         elementUtil = new ElementUtil(driver);
@@ -44,5 +47,11 @@ public class LoginPage {
         elementUtil.doClick(loginBtn);
         //return elementUtil.waitForTitleIs(AppConstants.ACCOUNT_PAGE_TITLE,AppConstants.MEDIUM_TIMEOUT); //Account Page title
         return new AccountsPage(driver);
+    }
+
+    public RegisterPage navigateToRegisterPage(){
+        elementUtil.waitForElementVisible(registerBtn,AppConstants.SHORT_TIMEOUT).click();
+        //elementUtil.title();
+        return new RegisterPage(driver);
     }
 }

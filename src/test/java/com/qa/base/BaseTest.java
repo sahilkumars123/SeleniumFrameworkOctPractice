@@ -1,10 +1,7 @@
 package com.qa.base;
 
 import com.qa.factory.DriverFactory;
-import com.qa.pages.AccountsPage;
-import com.qa.pages.LoginPage;
-import com.qa.pages.ProductInfoPage;
-import com.qa.pages.SearchResultPage;
+import com.qa.pages.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
@@ -22,6 +19,8 @@ public class BaseTest {
     protected SearchResultPage searchResultPage;
 
     protected ProductInfoPage productInfoPage;
+
+    protected RegisterPage registerPage;
 
     DriverFactory driverFactory;
 

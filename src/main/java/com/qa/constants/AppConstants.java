@@ -15,6 +15,8 @@ public class AppConstants {
 
     // public final static List<String> ACCOUNT_PAGE_HEADERS = {"My Account", "My Affiliate Account", "My Orders", "Newsletter"};
 
+    public static final String USER_REGISTER_SUCCESS_MESSG = "Your Account Has Been Created!";
+
 
     //********* timeouts ************///////////
 
