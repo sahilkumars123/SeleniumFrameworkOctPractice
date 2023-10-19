@@ -11,10 +11,7 @@ public class RegisterPage {
     private WebDriver driver;
     private ElementUtil eleUtil;
 
-    public RegisterPage(WebDriver driver) {
-        this.driver = driver;
-        eleUtil = new ElementUtil(driver);
-    }
+
 
     private By firstName = By.id("input-firstname");
     private By lastName = By.id("input-lastname");
@@ -33,17 +30,18 @@ public class RegisterPage {
     private By logoutLink = By.linkText("Logout");
     private By registerLink = By.linkText("Register");
 
+    public RegisterPage(WebDriver driver) {
+        this.driver = driver;
+        eleUtil = new ElementUtil(driver);
+    }
+
     public boolean registerUser(String firstName, String lastName, String email, String telephone, String password,
                                 String subscribe)  {
 
         eleUtil.waitForElementVisible(this.firstName,AppConstants.MEDIUM_TIMEOUT).sendKeys(firstName);
         eleUtil.doSendKeys(this.lastName, lastName);
         eleUtil.doSendKeys(this.email, email);
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+
         eleUtil.doSendKeys(this.telephone, telephone);
 
 

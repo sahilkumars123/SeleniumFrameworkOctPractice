@@ -54,8 +54,8 @@ public class ProductInfoPageTest extends BaseTest {
        Map<String, String> actualProductData = productInfoPage.productData();
         System.out.println("Actual Product Data: "+actualProductData);
 
-        softAssert.assertEquals(actualProductData.get("Availability"),"In Stock11");
-        softAssert.assertEquals(actualProductData.get("Brand"),"Apple11");
+        softAssert.assertEquals(actualProductData.get("Availability"),"In Stock");
+        softAssert.assertEquals(actualProductData.get("Brand"),"Apple");
         softAssert.assertEquals(actualProductData.get("Ex Tax"),"$2,000.00");
         softAssert.assertEquals(actualProductData.get("Reward Points"),"800");
         softAssert.assertAll();
