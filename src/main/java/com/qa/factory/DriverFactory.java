@@ -1,9 +1,13 @@
 package com.qa.factory;
 
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.io.FileHandler;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -13,7 +17,7 @@ import java.util.Properties;
 
 public class DriverFactory {
 
-    WebDriver driver;
+   static WebDriver driver;
 
     Properties properties;
 
@@ -95,5 +99,24 @@ public class DriverFactory {
             throw new RuntimeException(e);
         }
         return properties;
+    }
+
+    public static String getScreenshot(){
+        //Step 1: Taking a screenshot and storing as a file
+      TakesScreenshot ts =  (TakesScreenshot) driver;
+      File scrFile = ts.getScreenshotAs(OutputType.FILE);
+
+      //Step 2: Naming a screenshot
+      String path = System.getProperty("user.dir")+"/screenshot"+System.currentTimeMillis()+".png";
+
+      File destinationFile = new File(path);
+
+      //Step 3: To move the screenshot to its destination file.
+        try {
+            FileHandler.copy(scrFile,destinationFile);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return path;
     }
 }
